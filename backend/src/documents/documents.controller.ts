@@ -1,17 +1,22 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { DocumentsService } from './documents.service';
 
 @Controller('api/documents')
 export class DocumentsController {
-  constructor(private readonly documents: DocumentsService) {}
-
-  @Get('active')
-  getActive() {
-    return this.documents.getActive();
-  }
+  constructor(private readonly docs: DocumentsService) {}
 
   @Get()
   list() {
-    return this.documents.list();
+    return this.docs.list();
+  }
+
+  @Get('active')
+  active() {
+    return this.docs.getActive();
+  }
+
+  @Get(':id')
+  get(@Param('id') id: string) {
+    return this.docs.getById(id);
   }
 }

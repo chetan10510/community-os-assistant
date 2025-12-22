@@ -1,13 +1,50 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>frontend</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <title>Community OS Assistant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- LEFT: CHAT -->
+  <div class="chat-panel">
+
+    <!-- Welcome (centered initially) -->
+    <div id="welcome" class="welcome">
+      <h1>Welcome to Community OS Assistant</h1>
+      <p>Ask anything or create documents</p>
+    </div>
+
+    <!-- Chat messages -->
+    <div id="chat" class="chat hidden"></div>
+
+    <!-- Input -->
+    <div class="input-bar">
+      <input
+        id="message"
+        type="text"
+        placeholder="Message Community OS Assistant…"
+        autocomplete="off"
+      />
+      <button id="send">➤</button>
+    </div>
+
+  </div>
+
+  <!-- RIGHT: DOCUMENT -->
+  <div id="doc-panel" class="doc-panel hidden">
+    <h2 id="doc-title">Document</h2>
+    <pre id="doc-content"></pre>
+    <a id="download" target="_blank">Download</a>
+  </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
 </html>

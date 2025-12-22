@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { DocumentEntity, DocumentType } from './document.entity';
+import { DocumentEntity, DocumentType } from './documents.entity';
 import { randomUUID } from 'crypto';
 
 @Injectable()
@@ -53,4 +53,14 @@ export class DocumentsService {
   clearActive() {
     this.activeDocumentId = null;
   }
+    getById(id: string) {
+    return this.documents.get(id) || null;
+  }
+
+  setActive(id: string) {
+    if (this.documents.has(id)) {
+      this.activeDocumentId = id;
+    }
+  }
+
 }
