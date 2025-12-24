@@ -4,6 +4,9 @@
   <meta charset="utf-8" />
   <title>Community OS Assistant</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -11,36 +14,203 @@
 
 <div class="app">
 
-  <!-- LEFT: CHAT -->
-  <div class="chat-panel">
-
-    <!-- Welcome (centered initially) -->
-    <div id="welcome" class="welcome">
-      <h1>Welcome to Community OS Assistant</h1>
-      <p>Ask anything or create documents</p>
+  <!-- TOP NAVIGATION -->
+  <nav class="top-nav">
+    <div class="logo">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+        <defs>
+          <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <circle cx="18" cy="18" r="16" fill="url(#logoGradient)" opacity="0.2"/>
+        <path d="M18 6C11.4 6 6 11.4 6 18s5.4 12 12 12 12-5.4 12-12S24.6 6 18 6zm0 20c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z" fill="url(#logoGradient)"/>
+        <circle cx="18" cy="18" r="5" fill="url(#logoGradient)"/>
+      </svg>
+      <span class="logo-text">Community OS</span>
     </div>
-
-    <!-- Chat messages -->
-    <div id="chat" class="chat hidden"></div>
-
-    <!-- Input -->
-    <div class="input-bar">
-      <input
-        id="message"
-        type="text"
-        placeholder="Message Community OS Assistant…"
-        autocomplete="off"
-      />
-      <button id="send">➤</button>
+    <div class="nav-links">
+      <a href="#" class="nav-link active">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        Chat
+      </a>
     </div>
+  </nav>
 
-  </div>
+  <!-- MAIN CONTAINER -->
+  <div class="main-container">
 
-  <!-- RIGHT: DOCUMENT -->
-  <div id="doc-panel" class="doc-panel hidden">
-    <h2 id="doc-title">Document</h2>
-    <pre id="doc-content"></pre>
-    <a id="download" target="_blank">Download</a>
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <button class="new-chat-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 5v14M5 12h14"/>
+          </svg>
+          New Chat
+        </button>
+      </div>
+
+      <div class="search-box">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/>
+          <path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input type="text" placeholder="Search conversations..." />
+      </div>
+
+      <div class="chat-list">
+        <div class="chat-date">Today</div>
+        <div class="chat-item active">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+          <span>New Conversation</span>
+          <button class="chat-menu">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <button class="delete-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+          </svg>
+          Clear History
+        </button>
+      </div>
+    </aside>
+
+    <!-- CENTER CONTENT -->
+    <main class="content">
+      
+      <!-- WELCOME SCREEN -->
+      <div id="welcome" class="welcome-screen">
+        <div class="welcome-content">
+          <div class="hero-section">
+            <div class="animated-bg"></div>
+            <h1 class="hero-title">
+              <span class="gradient-text">Community OS</span>
+              <span class="subtitle-text">Assistant</span>
+            </h1>
+            <p class="hero-subtitle">Your intelligent workspace companion for documents, data, and more</p>
+          </div>
+
+          <div class="capabilities-grid">
+            <div class="capability-card">
+              <div class="capability-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/>
+                </svg>
+              </div>
+              <h3>Document Creation</h3>
+              <p>Create and edit Word documents with precision</p>
+            </div>
+
+            <div class="capability-card">
+              <div class="capability-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <path d="M3 9h18M9 21V9"/>
+                </svg>
+              </div>
+              <h3>Excel Spreadsheets</h3>
+              <p>Generate and analyze data in spreadsheet format</p>
+            </div>
+
+            <div class="capability-card">
+              <div class="capability-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 16v-4M12 8h.01"/>
+                </svg>
+              </div>
+              <h3>Information & Answers</h3>
+              <p>Get instant answers to your questions</p>
+            </div>
+
+            <div class="capability-card">
+              <div class="capability-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2v6M12 16v6M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M2 12h6M16 12h6M4.93 19.07l4.24-4.24M14.83 9.17l4.24-4.24"/>
+                </svg>
+              </div>
+              <h3>Workflow Assistance</h3>
+              <p>Step-by-step guidance for complex tasks</p>
+            </div>
+          </div>
+
+          <div class="disclaimer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 16v-4M12 8h.01"/>
+            </svg>
+            <span>AI-powered responses may vary. Review important outputs carefully.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHAT MESSAGES -->
+      <div id="chat" class="chat-messages hidden"></div>
+
+      <!-- INPUT BAR -->
+      <div class="input-container">
+        <div class="input-wrapper">
+          <button class="attach-btn" title="Attach file">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+            </svg>
+          </button>
+          <input
+            id="message"
+            type="text"
+            placeholder="Ask me anything..."
+            autocomplete="off"
+          />
+          <button class="voice-btn" title="Voice input">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8"/>
+            </svg>
+          </button>
+          <button id="send" class="send-btn" title="Send message">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- RIGHT DOCUMENT PANEL -->
+    <aside id="doc-panel" class="doc-panel hidden">
+      <div class="doc-panel-header">
+        <h2 id="doc-title">Document Preview</h2>
+        <button class="close-panel-btn" onclick="document.getElementById('doc-panel').classList.add('hidden')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="doc-content-wrapper">
+        <pre id="doc-content"></pre>
+      </div>
+      <a id="download" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+        </svg>
+        Download Document
+      </a>
+    </aside>
+
   </div>
 
 </div>
