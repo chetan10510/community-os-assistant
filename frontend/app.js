@@ -1,5 +1,5 @@
-const API = "http://localhost:3001";
-
+// const API = "http://localhost:3001";
+const API = "https://community-os-assistant.onrender.com"; // Use your actual Render URL here
 // Cache DOM Elements
 const chat = document.getElementById("chat");
 const input = document.getElementById("message");
