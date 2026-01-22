@@ -4,45 +4,62 @@
   <meta charset="utf-8" />
   <title>Community OS Assistant</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-<div class="app">
+<div class="app-container">
+  <header class="os-header">
+    <div class="logo">🟣 Community OS <span>v2.0</span></div>
+    <div id="connection-status" class="status-tag">Connected</div>
+  </header>
 
-  <!-- LEFT: CHAT -->
-  <div class="chat-panel">
+  <div class="main-layout">
+    <section class="chat-panel">
+      <div id="welcome" class="welcome-screen">
+        <div class="welcome-icon">⚡</div>
+        <h1>Community OS</h1>
+        <p>Your Community OS AI Assistant.</p>
+      </div>
 
-    <!-- Welcome (centered initially) -->
-    <div id="welcome" class="welcome">
-      <h1>Welcome to Community OS Assistant</h1>
-      <p>Ask anything or create documents</p>
-    </div>
+      <div id="chat" class="chat-viewport hidden"></div>
 
-    <!-- Chat messages -->
-    <div id="chat" class="chat hidden"></div>
+      <div class="input-section">
+        <div class="input-wrapper">
+          <div class="menu-container">
+            <button id="plus-btn" class="action-btn plus-btn" title="Create New">+</button>
+            <div id="plus-menu" class="dropdown-menu hidden">
+              <div class="menu-label">Create Document</div>
+              <button onclick="createDoc('Word')"><span></span> Word Document</button>
+              <button onclick="createDoc('Excel')"><span></span> Excel Spreadsheet</button>
+            </div>
+          </div>
 
-    <!-- Input -->
-    <div class="input-bar">
-      <input
-        id="message"
-        type="text"
-        placeholder="Message Community OS Assistant…"
-        autocomplete="off"
-      />
-      <button id="send">➤</button>
-    </div>
+          <input id="message" type="text" placeholder="Type a message or command..." autocomplete="off" />
+          
+          <button id="send" class="action-btn send-btn">
+            <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
 
+    <aside id="doc-panel" class="doc-preview hidden">
+      <div class="doc-header">
+        <div class="doc-type-badge">PREVIEW</div>
+        <h2 id="doc-title">Document</h2>
+      </div>
+      <div class="doc-content-area">
+          <pre id="doc-content"></pre>
+      </div>
+      <div class="doc-footer">
+        <a id="download" class="download-trigger" target="_blank">
+          Download Files
+        </a>
+      </div>
+    </aside>
   </div>
-
-  <!-- RIGHT: DOCUMENT -->
-  <div id="doc-panel" class="doc-panel hidden">
-    <h2 id="doc-title">Document</h2>
-    <pre id="doc-content"></pre>
-    <a id="download" target="_blank">Download</a>
-  </div>
-
 </div>
 
 <script src="app.js"></script>
